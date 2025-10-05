@@ -1,19 +1,16 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
 
     // Environment Settings
-    // See also https://aka.ms/tsconfig/module
     "module": "esnext",
     "target": "esnext",
     "types": [],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
-    // and npm install -D @types/node
 
     // Other Outputs
     "sourceMap": true,
@@ -21,24 +18,27 @@
     "declarationMap": true,
 
     // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    "strict": true,                      // Bật toàn bộ kiểm tra nghiêm ngặt
+    "noUncheckedIndexedAccess": true,    // Ngăn truy cập mảng có thể undefined
+    "exactOptionalPropertyTypes": true,  // Phân biệt rõ optional property
+    "noImplicitAny": true,               // Ngăn biến không có type mặc định là any
+    "noImplicitThis": true,              // Ngăn dùng 'this' khi chưa rõ kiểu
+    "alwaysStrict": true,                // Tự động thêm 'use strict' vào file JS
 
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
+    // Style / Code Hygiene Options
+    "noImplicitReturns": true,           // Mọi nhánh trong hàm phải return
+    "noImplicitOverride": true,          // Khi override phải ghi rõ từ khóa override
+    "noUnusedLocals": true,              // Cảnh báo biến không dùng
+    "noUnusedParameters": true,          // Cảnh báo tham số không dùng
+    "noFallthroughCasesInSwitch": true,  // Ngăn fallthrough trong switch
+    "noPropertyAccessFromIndexSignature": true, // Yêu cầu truy cập rõ ràng
 
     // Recommended Options
-    "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   }
 }
