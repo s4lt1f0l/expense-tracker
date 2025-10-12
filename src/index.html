@@ -4,22 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Income and Expense Tracker </title>
+    <title>Expense Tracker </title>
     <script src="../dist/index.js" type="module" defer></script>
     <link rel="stylesheet" href="./output.css">
 </head>
 
 <body>
-    <div class="container bg-[#343a40] h-screen max-w-full">
+    <div class="container bg-[#343a40] h-screen max-w-full px-10">
         <header class="flex text-2xl justify-between h-[10vh]">
             <div class="header-wrapper">
-                <div class="logo-title-wrapper flex ">
+                <div class="logo-title-wrapper flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="#ffffff">
                         <path
                             d="M240-160q-66 0-113-47T80-320v-320q0-66 47-113t113-47h480q66 0 113 47t47 113v320q0 66-47 113t-113 47H240Zm0-480h480q22 0 42 5t38 16v-21q0-33-23.5-56.5T720-720H240q-33 0-56.5 23.5T160-640v21q18-11 38-16t42-5Zm-74 130 445 108q9 2 18 0t17-8l139-116q-11-15-28-24.5t-37-9.5H240q-26 0-45.5 13.5T166-510Z" />
                     </svg>
-                    <p class="font-bold text-blue-500">Income and Expense Tracker</p>
+                    <p class="font-bold text-blue-500 ml-2">Expense Tracker</p>
                 </div>
 
                 <p class="text-[#718aa0] text-xs">Manage your spendings</p>
@@ -55,7 +55,7 @@
                 <div class="navigate-section h-5/6">
                     <nav class="navigate-content flex flex-col h-1/3 w-full ">
                         <a href="#" id="dashboard"
-                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-200 ease-in ">
+                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-150 ease-in ">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                                     width="24px" fill="#ffffff">
@@ -66,7 +66,7 @@
                             <span class="ml-2 hidden md:flex">Dashboard</span>
                         </a>
                         <a href="#" id="transactions"
-                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-200 ease-in">
+                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-150 ease-in">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                                     width="24px" fill="#ffffff">
@@ -77,7 +77,7 @@
                             <span class="ml-2 hidden md:flex">Transactions</span>
                         </a>
                         <a href="#" id="budgets"
-                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-200 ease-in">
+                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-150 ease-in">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                                     width="24px" fill="#ffffff">
@@ -88,7 +88,7 @@
                             <span class="ml-2 hidden md:flex">Budgets</span>
                         </a>
                         <a href="#" id="reports"
-                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-200 ease-in">
+                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-150 ease-in">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                                     width="24px" fill="#ffffff">
@@ -99,7 +99,7 @@
                             <span class="ml-2 hidden md:flex">Reports</span>
                         </a>
                         <a href="#" id="saving-goals"
-                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-200 ease-in">
+                            class="flex items-center h-1/5 px-5 focus:bg-sky-500 hover:bg-sky-700 transition delay-50 duration-150 ease-in">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                                     width="24px" fill="#ffffff">
@@ -112,10 +112,10 @@
                     </nav>
                 </div>
             </div>
-            <main class="main rounded-md bg-[#212428] ml-5 w-6/7 h-full">
-                <div id="dashboard-section" class="h-full">
+            <main class="main rounded-md text-white bg-[#212428] ml-5 w-6/7 h-full">
+                <section id="dashboard-section" class="h-full hidden">
                     <div class="h-full p-5">
-                        <div id="dashboard-summary" class="flex h-1/5 gap-x-3">
+                        <div id="dashboard-summary" class="flex h-1/5 gap-x-3 mb-3">
                             <div id="total-balance" class="h-full w-1/4 shadow-sm shadow-black p-5 rounded-xl ">
                                 <p class="text-[#7d9ab3]">Total Balance</p>
                             </div>
@@ -129,22 +129,143 @@
                                 <p class="text-[#7d9ab3]">Saving Rate</p>
                             </div>
                         </div>
-                        <div id="dashboard-content">
-                            <div id="spending-by-category"></div>
-                            <div id="monthly-overview"></div>
+                        <div id="dashboard-content" class="flex h-4/5 w-full">
+                            <div id="spending-by-category" class="border-2 border-white mr-3 rounded-xl h-full w-1/2">
+                            </div>
+                            <div id="monthly-overview" class="border-2 border-white rounded-xl h-full w-1/2"></div>
                         </div>
                     </div>
-                </div>
-                <div id="transactions-section" class="h-full hidden"></div>
-                <div id="budgets-section" class="h-full hidden"></div>
-                <div id="reports-section" class="h-full hidden"></div>
-                <div id="saving-goals-section" class="h-full hidden"></div>
+                </section>
+                <section id="transactions-section" class="h-full p-5 flex flex-col"
+                    aria-labelledby="transactions-heading">
+
+                    <header class="flex justify-between w-full items-center">
+                        <h2 id="transactions-heading" class="text-2xl text-[#2E82FF] font-bold">Transactions</h2>
+                        <button id="add-transaction"
+                            class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded">
+                            Add Transaction
+                        </button>
+                    </header>
+
+                    <form id="filter" class="flex gap-10 mt-4">
+                        <div class="w-1/10">
+                            <label for="transaction-type" class="block mb-2 text-sm">Type</label>
+                            <select class="w-full bg-gray-50 dark:bg-gray-800 border-gray-600 rounded-md p-2"
+                                name="transaction-type" id="transaction-type">
+                                <option value="all">All</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                        <div class="w-1/10">
+                            <label for="category-filter" class="block mb-2 text-sm">Category</label>
+                            <select name="category-filter" id="category-filter"
+                                class="w-full bg-gray-50 dark:bg-gray-800 border-gray-600 rounded-md p-2">
+                                <option value="all">All</option>
+                                <option value="food">Food</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="utilities">Utilities</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="health">Health</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="salary">Salary</option>
+                                <option value="freelance">Freelance</option>
+                                <option value="investment">Investment</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="w-1/10">
+                            <label for="time-filter" class="block mb-2 text-sm">Time</label>
+                            <select class="w-full bg-gray-50 dark:bg-gray-800 border-gray-600 rounded-md p-2"
+                                name="time-filter" id="time-filter">
+                                <option value="all">All</option>
+                                <option value="last-7-days">Last 7 days</option>
+                                <option value="last-30-days">Last 30 days</option>
+                                <option value="this-month">This month</option>
+                                <option value="last-month">Last month</option>
+                                <option value="this-year">This year</option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <table id="transaction-table" class="w-full mt-5 table-auto border-separate border-spacing-y-3 ">
+                        <thead class="h-1/13">
+                            <tr class="text-[#5C9DFF] bg-[#343a40]">
+                                <th class="p-2 text-center w-1/6">Date</th>
+                                <th class="p-2 text-center w-2/6">Description</th>
+                                <th class="p-2 text-center w-1/6">Category</th>
+                                <th class="p-2 text-center w-1/6">Type</th>
+                                <th class="p-2 text-center w-2/6">Amount</th>
+                                <th class="p-2 text-center w-1/6">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </section>
+                <section id="budgets-section" class="h-full hidden"> Budgets</section>
+                <section id="reports-section" class="h-full hidden">Reports</section>
+                <section id="saving-goals-section" class="h-full hidden">Saving</section>
             </main>
         </div>
-
     </div>
+    <div id="add-transaction-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center ">
+        <div class="bg-[#343a40] p-8 rounded-lg shadow-xl w-full max-w-md text-white">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-[#2E82FF]">Add New Transaction</h2>
+                <button id="close-modal-btn" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
 
+            <form id="transaction-form">
+                <div class="mb-4">
+                    <label for="description" class="block mb-2 text-sm">Description</label>
+                    <input type="text" id="description" name="description"
+                        class="w-full bg-[#212529] border border-gray-600 rounded-md p-2" required>
+                </div>
 
+                <div class="mb-4">
+                    <label for="amount" class="block mb-2 text-sm">Amount</label>
+                    <input type="number" id="amount" name="amount" placeholder="0.00"
+                        class="w-full bg-[#212529] border border-gray-600 rounded-md p-2" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="date" class="block mb-2 text-sm">Date</label>
+                    <input type="date" id="date" name="date"
+                        class="w-full bg-[#212529] border border-gray-600 rounded-md p-2" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm">Type</label>
+                    <div class="flex gap-4">
+                        <label><input type="radio" name="type" value="income" class="mr-2">Income</label>
+                        <label><input type="radio" name="type" value="expense" class="mr-2" checked>Expense</label>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="category" class="block mb-2 text-sm">Category</label>
+                    <select id="category" name="category"
+                        class="w-full bg-[#212529] border border-gray-600 rounded-md p-2">
+                        <option value="food">Food</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="health">Health</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="salary">Salary</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <button id="save-transaction-button" type="submit"
+                    class="w-full bg-sky-500 hover:bg-sky-700 font-bold py-2 px-4 rounded">
+                    Save Transaction
+                </button>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
